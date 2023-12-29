@@ -47,6 +47,7 @@ RUN set -x \
     && echo '3proxy:x:10001:10001::/nonexistent:/sbin/nologin' > ./etc/passwd \
     && echo '3proxy:x:10001:' > ./etc/group \
     && apk add --no-cache --virtual .build-deps curl ca-certificates \
+    && apk add --no-cache tcpdump iftop htop iperf3 \
     && update-ca-certificates \
     && curl -SsL -o ./bin/dumb-init "https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_$(arch)" \
     && chmod +x ./bin/dumb-init \
